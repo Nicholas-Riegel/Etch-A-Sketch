@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    height: 10vh;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    height: 2rem;
+    width: 20%;
+}
+#container {
+    height: 90vh;
+}
+#container div {
+    border: red solid 1px;   
+}
