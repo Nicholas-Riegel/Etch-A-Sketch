@@ -71,8 +71,9 @@ document.getElementById('clear').addEventListener('click', clear);
 // clear function
 
 function clear(){
-    let all = document.getElementsByClassName('subdiv');
-    for (let i = 0; i < all.length; i++){
-        all[i].style.background = 'none';
-    }
+    let subdivs = document.getElementsByClassName('subdiv');
+    // for (let i = 0; i < subdivs.length; i++){
+    //     subdivs[i].style.background = 'none';
+    // } OR (just to be fancy):
+    Array.from(subdivs).forEach(x=>x.style.background = 'none')
 }
