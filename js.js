@@ -74,6 +74,6 @@ function clear(){
     let subdivs = document.getElementsByClassName('subdiv');
     // for (let i = 0; i < subdivs.length; i++){
     //     subdivs[i].style.background = 'none';
-    // } OR (just to be fancy):
+    // } OR:
     Array.from(subdivs).forEach(x=>x.style.background = 'none')
 }
