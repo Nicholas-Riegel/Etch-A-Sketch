@@ -12,8 +12,6 @@ button {
 #container {
     height: 90vh;
 }
-#container div {
-    /*
-    border: red solid 1px;   
-    */
+#spacer {
+    width: 7%;
 }

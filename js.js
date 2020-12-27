@@ -6,7 +6,7 @@ document.getElementById('container').style.setProperty('grid-template-rows', 're
 
 // set initial divs and div attributes
 
-for (let i=1; i<=256; i++) {
+for (let i = 1; i <= 256; i++) {
     let div = document.createElement('div');
     div.setAttribute('class', 'subdiv');
     div.setAttribute('id', i);
@@ -16,7 +16,7 @@ for (let i=1; i<=256; i++) {
 
 // function for change background onMouseOver
 
-function changeBackground(id){
+function changeBackground(id) {
     document.getElementById(id).style.background = 'blue';
 }
 
@@ -26,39 +26,53 @@ document.getElementById('refresh').addEventListener('click', numberPerSide);
 
 // prompt function
 
-function numberPerSide(){
+function numberPerSide() {
 
-//remove previous divs
+    //remove previous divs
 
     let subdivs = document.getElementsByClassName('subdiv');
-    while (subdivs[0]){
-    subdivs[0].parentNode.removeChild(subdivs[0]);
+    while (subdivs[0]) {
+        subdivs[0].parentNode.removeChild(subdivs[0]);
     }
 
-// prompt
+    // prompt
 
     let num = parseInt(prompt('Enter number of squares per side. Number should be between 1 and 100.'));
 
-// make sure number is between 1 and 100
+    // make sure number is between 1 and 100
 
-    if (num < 1 || num > 100){
-        let num = parseInt(prompt('Enter number of squares per side. Number should be between 1 and 100.'));    
+    if (num < 1 || num > 100) {
+        let num = parseInt(prompt('Enter number of squares per side. Number should be between 1 and 100.'));
     }
-// set new rows and columns
+
+    // set new rows and columns
 
     document.getElementById('container').style.setProperty('display', 'grid');
     document.getElementById('container').style.setProperty('grid-template-columns', `repeat(${num}, 1fr)`);
     document.getElementById('container').style.setProperty('grid-template-rows', `repeat(${num}, 1fr)`);
 
-// set new divs and div attributes
+    // set new divs and div attributes
 
     let squares = num * num;
-    
-    for (let i=1; i<=squares; i++) {
+
+    for (let i = 1; i <= squares; i++) {
         let div = document.createElement('div');
         div.setAttribute('class', 'subdiv');
         div.setAttribute('id', i);
         document.getElementById('container').appendChild(div);
         div.setAttribute('onMouseOver', 'changeBackground(id)');
+    }
+}
+
+// add event listener to clear button
+
+document.getElementById('clear').addEventListener('click', clear);
+
+// clear function
+
+function clear(){
+    let all = document.getElementsByClassName('subdiv');
+    for (let i = 0; i < all.length; i++){
+        all[i].style.background = 'none';
     }
 }
